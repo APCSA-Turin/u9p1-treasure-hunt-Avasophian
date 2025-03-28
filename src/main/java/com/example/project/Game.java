@@ -46,13 +46,50 @@ public class Game{
      
     }
 
-    public void initialize(){
+    public void initialize(int playerChoice){
 
         //to test, create a player, trophy, grid, treasure, and enemies. Then call placeSprite() to put them on the grid
-   
+        if (playerChoice == 1)
+        {
+            Grid playerGrid = new Grid(playerChoice);
+        }
+
+        if (playerChoice == 2)
+        {
+        }
+
+        if (playerChoice == 3)
+        {
+        }
+        
+
+
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Choose Difficulty: ");
+        System.out.println("1. Easy");
+        System.out.println("2. Medium");
+        System.out.println("3. Good Luck");
+        int playerDifficulty = scan.nextInt();
+        Game g = new Game(0);
+        if (playerDifficulty == 1)
+        {
+            g = new Game(10);
+        }
+
+        if (playerDifficulty == 2)
+        {
+            g = new Game(20);
+        }
+
+        if (playerDifficulty == 3)
+        {
+            g = new Game(30);
+        }
+        g.initialize(playerDifficulty);
         
     }
 }
