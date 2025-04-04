@@ -5,6 +5,7 @@ package com.example.project;
 public class Grid{
     private Sprite[][] grid;
     private int size;
+    private int totalTreasures = 0;
 
     public Grid(int size) 
     { //initialize and create a grid with all DOT objects
@@ -16,6 +17,16 @@ public class Grid{
                 grid[row][col] = new Dot(row, col);
             }
         }
+    }
+
+    public void setTotalTreasures(int newTreasures)
+    {
+        totalTreasures = newTreasures;
+    }
+
+    public int getTotalTreasures()
+    {
+        return totalTreasures;
     }
 
     public int[][] generate(int numOfThings)
@@ -39,11 +50,15 @@ public class Grid{
 
     public void placeSprite(Sprite s)
     { //place sprite in new spot
-        System.out.println(s.getY());
         int newY = grid.length - s.getY() - 1;
         grid[newY][s.getX()] = s;
     }
 
+
+    public Sprite getSprite(int y, int x)
+    {
+        return grid[y][x];
+    }
     public void placeSprite(Sprite s, String direction) 
     { //place sprite in a new spot based on direction
 
@@ -81,7 +96,7 @@ public class Grid{
         System.out.println();
         for (int row = 0; row < grid.length; row++)
         {
-            System.out.print(row + " ");
+            System.out.print(grid.length - row  - 1+ " ");
             for (int col = 0; col < grid[0].length; col++)
             {
 
@@ -111,10 +126,40 @@ public class Grid{
 
                 else if (grid[row][col] instanceof Player) 
                 {
-                    System.out.print("🗿 ");
+                    System.out.print("😄 ");
+                }
+
+                else if (grid[row][col] instanceof Door) 
+                {
+                    System.out.print("🚪 ");
+                }
+                else if (grid[row][col] instanceof Water) 
+                {
+                    System.out.print("🌊 ");
+                }
+                else if (grid[row][col] instanceof Bucket) 
+                {
+                    System.out.print("🥣 ");
+                }
+                else if (grid[row][col] instanceof Fire) 
+                {
+                    System.out.print("🔥 ");
+                }
+                else if (grid[row][col] instanceof Person) 
+                {
+                    System.out.print("🧝 ");
+                }
+                else if (grid[row][col] instanceof Key) 
+                {
+                    System.out.print("🔑 ");
+                }
+                else if (grid[row][col] instanceof Sword) 
+                {
+                    System.out.print("🔪 ");
                 }
             } 
             System.out.println();
+
         }
 
     }

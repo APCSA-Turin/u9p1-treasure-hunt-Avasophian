@@ -48,6 +48,11 @@ public class Sprite {
         }
     }
 
+    public int getRow(int size)
+    {
+        return size - y - 1;
+    }
+
     public void interact() { //you can leave this empty
         // Default behavior (can be overridden by subclasses)
     }
