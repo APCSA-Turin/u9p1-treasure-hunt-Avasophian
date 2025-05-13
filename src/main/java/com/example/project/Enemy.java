@@ -1,6 +1,6 @@
 package com.example.project;
 
-//Enemy only need constructor and getCoords() getRowCol()
+// Subclass of Sprite
 public class Enemy extends Sprite{ //child  of Sprite
     
     public Enemy(int x, int y) 
